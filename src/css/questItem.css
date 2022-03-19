@@ -1,0 +1,18 @@
+.questItem{
+  margin-top: 20px;
+}
+
+.questItem h2{
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.questItem p{
+  margin-top: 10px;
+  font-size: 18px;
+  max-height: 300px;
+  line-height: 25px;
+  overflow-y: auto;
+  color: hsl(210, 20%, 25%);
+}
+

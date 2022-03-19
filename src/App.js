@@ -1,34 +1,23 @@
-import React, { useState, Fragment } from "react";
-import CSS from "./App.css";
-import { Routes, Route, useNavigate } from "react-router-dom";
-import Register from "./places/Register/Register";
-import Login from "./places/Login/Login";
-import MainPage from "./places/MainPage/MainPage";
+import "./css/App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Login from "./auth/Login";
+import Register from "./auth/Register";
+import Reset from "./auth/Reset";
+import Dashboard from "./Places/Dashboard";
 
-const App = () => {
-  console.log("App");
-  const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [token, setToken] = useState("");
-  const [adventurer, setAdventurer] = useState({});
-
+function App() {
   return (
-    <Fragment>
-      <Routes>
-        <Route
-          path="/*"
-          element={
-            token ? <MainPage token={token} /> : <Login token={setToken} />
-          }
-        />
-        <Route
-          path="/login"
-          element={<Login token={setToken} adventurer={setAdventurer} />}
-        />
-        <Route path="/register" element={<Register />} />
-      </Routes>
-    </Fragment>
+    <div className="app">
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Login />} />
+          <Route exact path="/register" element={<Register />} />
+          <Route exact path="/reset" element={<Reset />} />
+          <Route exact path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </Router>
+    </div>
   );
-};
+}
 
 export default App;
